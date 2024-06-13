@@ -36,6 +36,8 @@
 
 &rarr; **Ruby on Rails** - web development environment with Ruby on Rails (`rails new`).
 
+&rarr; **ASP.NET Core** - web development environment with ASP.NET Core (`dotnet new webapp`).
+
 ## Usage
 
 ### Prerequisites
