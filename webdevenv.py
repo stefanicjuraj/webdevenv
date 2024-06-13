@@ -108,6 +108,28 @@ console.log(`Example app listening at http://localhost:${port}`);
     print("2. Start the server:")
     print("   node index.js")
 
+def flask(directory, project_name):
+    os.makedirs(os.path.join(directory, project_name), exist_ok=True)
+    subprocess.run(["pip", "install", "flask"], cwd=os.path.join(directory, project_name))
+    with open(os.path.join(directory, project_name, 'app.py'), 'w') as f:
+        f.write("""
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+""")
+    print("\nNext steps to run your Flask app:")
+    print("1. Navigate to your project directory:")
+    print(f"   cd {os.path.join(directory, project_name)}")
+    print("2. Start the Flask server:")
+    print("   python app.py")
+
+
 def directory():
     home_dir = os.path.expanduser("~")
     directories = {
@@ -151,6 +173,7 @@ def main():
     print("9: Angular")
     print("10: Svelte")
     print("11: Express.js")
+    print("12: Flask")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -189,6 +212,9 @@ def main():
     elif project_type == '11':
         express(target_directory, project_name)
         print(f'Express.js development environment set up in: {project_directory}')
+    elif project_type == '12':
+        flask(target_directory, project_name)
+        print(f'Flask development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
