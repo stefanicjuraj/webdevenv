@@ -38,6 +38,8 @@
 
 &rarr; **ASP.NET Core** - web development environment with ASP.NET Core (`dotnet new webapp`).
 
+&rarr; **MERN** - web development environment with MongoDB, Express.js, React, and Node.js (MERN stack).
+
 ## Usage
 
 ### Prerequisites
