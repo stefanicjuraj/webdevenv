@@ -35,4 +35,10 @@
 
 1. Create a new project, or clone the repository &rarr; `git clone https://github.com/stefanicjuraj/webdevenv.git`
 2. Navigate to the project.
-3. Initialize the project: &rarr; `python webdevenv.py`
+3. Initialize the web development environment: &rarr; `python webdevenv.py`
+4. Follow the prompt instructions:
+   - Read the introduction.
+   - Enter the name for your web development environment.
+   - Choose the type of the web development environment from the list.
+   - Choose the directory where you want to save the web development environment.
+5. Follow the prompt instructions to navigate to your web development environment and start the web development server.
