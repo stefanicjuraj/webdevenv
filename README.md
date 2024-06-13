@@ -30,6 +30,8 @@
 
 &rarr; **Spring Boot** - web development environment with Spring Initializr (`spring init --dependencies=web --build=gradle`).
 
+&rarr; **Laravel** - web development environment with Laravel (`composer create-project --prefer-dist laravel/laravel`).
+
 ## Usage
 
 ### Prerequisites
