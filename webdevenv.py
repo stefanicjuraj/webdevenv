@@ -164,6 +164,14 @@ def rails(directory, project_name):
     print("2. Start the development server:")
     print("   rails server")
 
+def aspnetcore(directory, project_name):
+    subprocess.run(["dotnet", "new", "webapp", "-o", project_name], cwd=directory)
+    print("\nNext steps to run your ASP.NET Core app:")
+    print("1. Navigate to your project directory:")
+    print(f"   cd {os.path.join(directory, project_name)}")
+    print("2. Start the development server:")
+    print("   dotnet run")
+
 def directory():
     home_dir = os.path.expanduser("~")
     directories = {
@@ -212,6 +220,7 @@ def main():
     print("14: Laravel")
     print("15: Django")
     print("16: Ruby on Rails")
+    print("17: ASP.NET Core")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -265,6 +274,9 @@ def main():
     elif project_type == '16':
         rails(target_directory, project_name)
         print(f'Ruby on Rails development environment set up in: {project_directory}')
+    elif project_type == '17':
+        aspnetcore(target_directory, project_name)
+        print(f'ASP.NET Core development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
