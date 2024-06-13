@@ -25,3 +25,14 @@
 &rarr; **Svelte** - web development environment with Svelte Template (`npx degit sveltejs/template`).
 
 &rarr; **Express.js** - web development environment with Express.js (`npm install express`).
+
+## Usage
+
+### Prerequisites
+
+- Node.js
+- npm
+
+1. Create a new project, or clone the repository &rarr; `git clone https://github.com/stefanicjuraj/webdevenv.git`
+2. Navigate to the project.
+3. Initialize the project: &rarr; `python webdevenv.py`
