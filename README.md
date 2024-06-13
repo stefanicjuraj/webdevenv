@@ -28,6 +28,8 @@
 
 &rarr; **Flask** - web development environment with app.py file.
 
+&rarr; **Spring Boot** - web development environment with Spring Initializr (`spring init --dependencies=web --build=gradle`).
+
 ## Usage
 
 ### Prerequisites
