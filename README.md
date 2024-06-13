@@ -34,6 +34,8 @@
 
 &rarr; **Django** - web development environment with Django (`django-admin startproject`).
 
+&rarr; **Ruby on Rails** - web development environment with Ruby on Rails (`rails new`).
+
 ## Usage
 
 ### Prerequisites
