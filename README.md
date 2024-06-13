@@ -32,6 +32,8 @@
 
 &rarr; **Laravel** - web development environment with Laravel (`composer create-project --prefer-dist laravel/laravel`).
 
+&rarr; **Django** - web development environment with Django (`django-admin startproject`).
+
 ## Usage
 
 ### Prerequisites
