@@ -139,6 +139,14 @@ def springboot(directory, project_name):
     print("3. Run the application:")
     print("   ./gradlew bootRun")
 
+def laravel(directory, project_name):
+    subprocess.run(["composer", "create-project", "--prefer-dist", "laravel/laravel", project_name], cwd=directory)
+    print("\nNext steps to run your Laravel app:")
+    print("1. Navigate to your project directory:")
+    print(f"   cd {os.path.join(directory, project_name)}")
+    print("2. Start the development server:")
+    print("   php artisan serve")
+
 def directory():
     home_dir = os.path.expanduser("~")
     directories = {
@@ -184,6 +192,7 @@ def main():
     print("11: Express.js")
     print("12: Flask")
     print("13: Spring Boot")
+    print("14: Laravel")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -228,6 +237,9 @@ def main():
     elif project_type == '13':
         springboot(target_directory, project_name)
         print(f'Spring Boot development environment set up in: {project_directory}')
+    elif project_type == '14':
+        laravel(target_directory, project_name)
+        print(f'Laravel development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
