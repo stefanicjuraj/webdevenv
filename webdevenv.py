@@ -156,6 +156,14 @@ def django(directory, project_name):
     print("2. Start the development server:")
     print("   python manage.py runserver")
 
+def rails(directory, project_name):
+    subprocess.run(["rails", "new", project_name], cwd=directory)
+    print("\nNext steps to run your Rails app:")
+    print("1. Navigate to your project directory:")
+    print(f"   cd {os.path.join(directory, project_name)}")
+    print("2. Start the development server:")
+    print("   rails server")
+
 def directory():
     home_dir = os.path.expanduser("~")
     directories = {
@@ -203,6 +211,7 @@ def main():
     print("13: Spring Boot")
     print("14: Laravel")
     print("15: Django")
+    print("16: Ruby on Rails")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -253,6 +262,9 @@ def main():
     elif project_type == '15':
         django(target_directory, project_name)
         print(f'Django development environment set up in: {project_directory}')
+    elif project_type == '16':
+        rails(target_directory, project_name)
+        print(f'Ruby on Rails development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
