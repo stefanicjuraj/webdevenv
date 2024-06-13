@@ -172,6 +172,45 @@ def aspnetcore(directory, project_name):
     print("2. Start the development server:")
     print("   dotnet run")
 
+def mern(directory, project_name):
+    os.makedirs(os.path.join(directory, project_name, 'backend'), exist_ok=True)
+    os.makedirs(os.path.join(directory, project_name, 'frontend'), exist_ok=True)
+    subprocess.run(["npx", "create-react-app", "frontend"], cwd=os.path.join(directory, project_name))
+    subprocess.run(["npm", "init", "-y"], cwd=os.path.join(directory, project_name, 'backend'))
+    subprocess.run(["npm", "install", "express", "mongoose", "cors"], cwd=os.path.join(directory, project_name, 'backend'))
+    with open(os.path.join(directory, project_name, 'backend', 'index.js'), 'w') as f:
+        f.write("""
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const app = express();
+const port = 5000;
+
+app.use(cors());
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello World from Express and MongoDB!');
+});
+
+mongoose.connect('mongodb://localhost:27017/mern', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+""")
+    print("\nNext steps to run your MERN stack app:")
+    print("1. Navigate to your backend directory and start the server:")
+    print(f"   cd {os.path.join(directory, project_name, 'backend')}")
+    print("   node index.js")
+    print("2. Navigate to your frontend directory and start the development server:")
+    print(f"   cd {os.path.join(directory, project_name, 'frontend')}")
+    print("   npm start")
+
 def directory():
     home_dir = os.path.expanduser("~")
     directories = {
@@ -221,6 +260,7 @@ def main():
     print("15: Django")
     print("16: Ruby on Rails")
     print("17: ASP.NET Core")
+    print("18: MERN stack")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -277,6 +317,9 @@ def main():
     elif project_type == '17':
         aspnetcore(target_directory, project_name)
         print(f'ASP.NET Core development environment set up in: {project_directory}')
+    elif project_type == '18':
+        mern(target_directory, project_name)
+        print(f'MERN stack development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
