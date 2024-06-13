@@ -129,6 +129,15 @@ if __name__ == '__main__':
     print("2. Start the Flask server:")
     print("   python app.py")
 
+def springboot(directory, project_name):
+    subprocess.run(["spring", "init", "--dependencies=web", "--build=gradle", project_name], cwd=directory)
+    print("\nNext steps to run your Spring Boot app:")
+    print("1. Navigate to your project directory:")
+    print(f"   cd {os.path.join(directory, project_name)}")
+    print("2. Build the project:")
+    print("   ./gradlew build")
+    print("3. Run the application:")
+    print("   ./gradlew bootRun")
 
 def directory():
     home_dir = os.path.expanduser("~")
@@ -174,6 +183,7 @@ def main():
     print("10: Svelte")
     print("11: Express.js")
     print("12: Flask")
+    print("13: Spring Boot")
     project_type = input("Enter the number of your choice: ")
 
     target_directory = directory()
@@ -215,6 +225,9 @@ def main():
     elif project_type == '12':
         flask(target_directory, project_name)
         print(f'Flask development environment set up in: {project_directory}')
+    elif project_type == '13':
+        springboot(target_directory, project_name)
+        print(f'Spring Boot development environment set up in: {project_directory}')
     else:
         print(f'Unknown development environment type: {project_type}. Exiting.')
 
