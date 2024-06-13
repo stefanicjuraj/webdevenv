@@ -26,6 +26,8 @@
 
 &rarr; **Express.js** - web development environment with Express.js (`npm install express`).
 
+&rarr; **Flask** - web development environment with app.py file.
+
 ## Usage
 
 ### Prerequisites
